@@ -30,7 +30,7 @@ jobs:
       - name: Checkout github repository
         uses: actions/checkout@v4
 
-      - name: Print environment
+      - name: Deploying to environment ${{ matrix.environment }}
         run: echo "Deploying to environment ${{ matrix.environment }}"
 
       - name: Simulate deployment
