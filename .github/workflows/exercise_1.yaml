@@ -1,10 +1,16 @@
-name: Hello World Workflow
+name: Cron and Action Workflow-ex6
 
 on: push
+  # schedule:
+  #   - cron: '*/5 * * * *' # Every 5 minutes
 
 jobs:
-  say_hello:
+  greet:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Print Hello World
-      run: echo "Hello, World!"
+    - uses: actions/checkout@v4
+    - name: Run Greet Action
+      uses: ./.github/actions/greet.yaml
+      with:
+        names: 'Engineers'
