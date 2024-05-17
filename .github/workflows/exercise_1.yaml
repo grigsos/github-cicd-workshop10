@@ -11,6 +11,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Run Greet Action
-      uses: ./.github/actions/greet.yaml
+      uses: ./.github/actions/greeting
       with:
         names: 'Engineers'
