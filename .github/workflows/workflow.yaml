@@ -4,7 +4,7 @@ on: push
 
 jobs:
   stress-test:
-    runs-on: self-hosted
+    runs-on: high-powered-pc
 
     steps:
     - name: Checkout repository
