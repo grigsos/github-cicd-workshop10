@@ -13,7 +13,10 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version: '3.12'
-    # Add step to install dependencies
+    - name: install dependencies
+      run: pip install pytest
+    - run: pytest 
+      working-directory: exercise_2
 
-  lint:
+  # lint:
     # Complete the lint job configuration
