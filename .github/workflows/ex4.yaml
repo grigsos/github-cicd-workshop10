@@ -25,16 +25,17 @@ jobs:
       max-parallel: 1
       matrix:
         environment: [ 'dev', 'int' ]
-    environment: ${{ matrix.environment }}
+        version: [ 'v1', 'v2' ]
+    environment: ${{ matrix.environment }}-${{ matrix.version }}
     steps:
       - name: Checkout github repository
         uses: actions/checkout@v4
 
-      - name: Deploying to environment ${{ matrix.environment }}
-        run: echo "Deploying to environment ${{ matrix.environment }}"
+      - name: Deploying to environment ${{ matrix.environment }} with version ${{ matrix.version }}
+        run: echo "Deploying to environment ${{ matrix.environment }} with version ${{ matrix.version }}"
 
       - name: Simulate deployment
         run: sleep 5
 
       - name: Finish deployment
-        run: echo "Deployment completed successfully"
+        run: echo "Deployment completed successfully for environment ${{ matrix.environment }} with version ${{ matrix.version }}"
