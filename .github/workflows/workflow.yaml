@@ -24,6 +24,5 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: exercise_3
-          file: exercise_3/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/my-app:latest
