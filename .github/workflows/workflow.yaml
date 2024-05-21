@@ -16,5 +16,5 @@ jobs:
       - name: Debug Step
         run: echo "Greeted names ${{ steps.greet_step.outputs.greeted_names }}"
       - name: Conditional Step
-        if: ${{ steps.greet_step.outputs.greeted_names == 'Engineers' }}
+        if: ${{ steps.greet_step.outputs.greeted_names == 'Engineers and 1 more person' }}
         run: echo "Conditional step"
