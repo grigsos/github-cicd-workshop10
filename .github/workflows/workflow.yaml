@@ -20,10 +20,11 @@ jobs:
       - name: Set boolean output
         id: set_boolean
         run: |
-          if [[ "${{ steps.greet_step.outputs.greeted_names }}" == "Engineers and 1 more person" ]]; then
+          if [[ "${{ steps.greet_step.outputs.greeted_names }}" == 'Engineers and 1 more person' ]]; then
             echo "SHOULD_RUN=true" >> $GITHUB_ENV
           else
             echo "SHOULD_RUN=false" >> $GITHUB_ENV
+        shell: bash
           
       # Conditional step based on the boolean value
       - name: Conditional Step that should succeed
