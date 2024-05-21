@@ -27,6 +27,7 @@ jobs:
             echo "SHOULD_RUN=true" >> $GITHUB_ENV
           else
             echo "SHOULD_RUN=false" >> $GITHUB_ENV
+          fi
         shell: bash
           
       # Conditional step based on the boolean value
