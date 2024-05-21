@@ -1,23 +1,18 @@
-name: Stress Test Workflow
+name: Cron and Action Workflow-ex6
 
 on: push
 
 jobs:
-  stress-test:
-    runs-on: high-powered-pc
+  greet:
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
-    - name: Install stress-ng
-      run: sudo apt-get update && sudo apt-get install -y stress-ng
-
-    - name: Run stress-ng
-      run: |
-        echo "Starting stress test"
-        stress-ng --cpu 8 --io 8 --vm 8 --vm-bytes 7G --timeout 300s --metrics-brief
-
-
-
-
+    - uses: actions/checkout@v4
+    - name: Run Greet Action
+      id: greet_step
+      uses: ./.github/actions/greet_people
+      with:
+        names: 'Engineers'
+    - name: Conditional Step
+      if: ${{ steps.greet_step.outputs.greeted_names == 'Engineers' }}
+      run: echo "The output is the same as the input ${{ steps.greet_step.outputs.greeted_names }}"
