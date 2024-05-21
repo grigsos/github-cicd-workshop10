@@ -14,5 +14,5 @@ runs:
       id: print_greeting
       run: |
         echo "Hello, ${{ inputs.names }}!"
-        echo "::set-output name=greeted_names::${{ inputs.names }}"
+        echo "greeted_names=${{ inputs.names }}" >> $GITHUB_OUTPUT
       shell: bash
