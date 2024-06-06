@@ -47,7 +47,7 @@ jobs:
         readme_path="README.md"
         actions_url="https://github.com/${{ github.repository }}/actions/workflows/test-and-badge.yml"
         badge_md="[![Test Status](${badge_url})](${actions_url})"
-        sed -i 's|\[!\[Test Status\](.*)\](.*)|'"$badge_md"'|g' $readme_path
+        sed -i '3s|.*|'"$actions_url"'|' $readme_path
 
     - name: Commit updated README
       run: |
