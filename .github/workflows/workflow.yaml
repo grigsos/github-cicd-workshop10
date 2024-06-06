@@ -39,7 +39,7 @@ jobs:
 
     - name: Update README with badge
       run: |
-        if [[ "${{ steps.check.outputs.status }}" = "passing" ]]; then
+        if [[ "${{ env.status }}" = "passing" ]]; then
           badge_url="https://img.shields.io/badge/tests-passing-brightgreen"
         else
           badge_url="https://img.shields.io/badge/tests-failing-red"
