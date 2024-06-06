@@ -32,9 +32,9 @@ jobs:
       id: check
       run: |
         if grep -q "<failure" result.xml; then
-          echo "::set-output name=status::failing"
+          echo "status=failing" >> $GITHUB_ENV
         else
-          echo "::set-output name=status::passing"
+          echo "status=passing" >> $GITHUB_ENV
         fi
 
     - name: Update README with badge
