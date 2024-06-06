@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Set up Python
       uses: actions/setup-python@v2
@@ -44,7 +44,10 @@ jobs:
         else
           badge_url="https://img.shields.io/badge/tests-failing-red"
         fi
-        sed -i 's|!\[Test Status\](.*)|![Test Status]('"$badge_url"')|g' README.md
+        readme_path="README.md"
+        actions_url="https://github.com/${{ github.repository }}/actions/workflows/test-and-badge.yml"
+        badge_md="[![Test Status](${badge_url})](${actions_url})"
+        sed -i 's|\[!\[Test Status\](.*)\](.*)|'"$badge_md"'|g' $readme_path
 
     - name: Commit updated README
       run: |
