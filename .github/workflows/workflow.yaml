@@ -3,7 +3,7 @@ name: Test and Update Badge
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   test:
